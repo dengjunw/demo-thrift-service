@@ -1,0 +1,15 @@
+spring:
+  profiles:
+    active: ${package.environment}
+
+logging.config: classpath:log4j2-${package.environment}.xml
+
+server:
+  port: 9990
+  servlet:
+    context-path: /
+  undertow:
+      worker-threads: 50
+      io-threads: 15
+      accesslog:
+        enabled: false
