@@ -6,7 +6,6 @@ spring:
     password: root
     initialize: false
 
-
 thrift:
   server:
     port: 8891

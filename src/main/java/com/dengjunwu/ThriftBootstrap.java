@@ -1,10 +1,12 @@
 package com.dengjunwu;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 
@@ -22,8 +24,9 @@ import org.springframework.context.annotation.ComponentScan;
 @EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})
 public class ThriftBootstrap {
     public static void main(String[] args) {
-        ConfigurableApplicationContext context = SpringApplication.run(ThriftBootstrap.class, args);
+        ApplicationContext context = SpringApplication.run(ThriftBootstrap.class, args);
         String[] activeProfiles = context.getEnvironment().getActiveProfiles();
+
         log.info("{} profile is active", activeProfiles);
     }
 }
