@@ -11,7 +11,7 @@ public class SpringConfig {
     @Bean
     public ServletRegistrationBean jerseyServlet() {
         ServletRegistrationBean registration = new ServletRegistrationBean(new ServletContainer(), "/*");
-        registration.addInitParameter(ServletProperties.JAXRS_APPLICATION_CLASS, ApiApplication.class.getName());
+        registration.addInitParameter(ServletProperties.JAXRS_APPLICATION_CLASS, JerseyConfig.class.getName());
         return registration;
     }
 }

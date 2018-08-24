@@ -9,7 +9,7 @@ import org.apache.thrift.TApplicationException;
 /**
  * Created by dengjunwu on 2018/8/23.
  */
-@ThriftService
+@ThriftServerService
 public interface TDemoTest {
     @ThriftMethod
     boolean isValidate() throws TApplicationException;

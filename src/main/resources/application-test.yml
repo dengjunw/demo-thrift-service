@@ -10,5 +10,10 @@ thrift:
   server:
     port: 8891
   client:
-    applications:
-      api: 127.0.0.1:8899
+    connect-timeout: 2s
+    receive-timeout: 2s
+    read-timeout: 2s
+    write-timeout: 2s
+
+
+environment: test

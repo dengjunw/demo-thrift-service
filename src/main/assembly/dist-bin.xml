@@ -13,7 +13,6 @@
             <directory>src/main/resources</directory>
             <includes>
                 <include>application.yml</include>
-                <include>applicationContext.xml</include>
                 <include>application-${package.environment}.yml</include>
                 <include>log4j2-${package.environment}.xml</include>
             </includes>
