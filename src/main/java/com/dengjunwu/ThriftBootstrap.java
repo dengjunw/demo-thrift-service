@@ -9,6 +9,7 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.FilterType;
+import org.springframework.test.context.ActiveProfiles;
 
 import java.security.Security;
 
@@ -21,14 +22,9 @@ import java.security.Security;
 //                pattern = {"com\\.dengjunwu\\.config\\.SpringConfig",
 //                        "com\\.dengjunwu\\.config\\.JerseyConfig",
 //                        "com\\.dengjunwu\\.ThriftBootstrap"})})
-@ComponentScan(basePackages = {"mobi.mixiong", "com.cyril"},
-        excludeFilters={@ComponentScan.Filter(type = FilterType.REGEX,
-                pattern = {"com\\.dengjunwu\\.rest.*",
-                        "com\\.dengjunwu\\.config\\.SpringConfig",
-                        "com\\.dengjunwu\\.config\\.JerseyConfig",
-                        "com\\.dengjunwu\\.Bootstrap"})})
 @Slf4j
 @EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})
+@ActiveProfiles(profiles = {"test"})
 public class ThriftBootstrap {
     public static void main(String[] args) {
         Security.addProvider(new BouncyCastleProvider());

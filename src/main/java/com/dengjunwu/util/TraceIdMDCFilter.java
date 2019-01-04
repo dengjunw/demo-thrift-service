@@ -1,6 +1,6 @@
 package com.dengjunwu.util;
 
-import com.cyril.springboot.thrift.server.TraceId;
+import com.dengjunwu.server.TraceId;
 import org.slf4j.MDC;
 
 import javax.annotation.Priority;
