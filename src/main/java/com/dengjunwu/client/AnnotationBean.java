@@ -28,7 +28,7 @@ import java.util.concurrent.ConcurrentMap;
 @Slf4j
 public class AnnotationBean implements DisposableBean, BeanPostProcessor, ApplicationContextAware {
 
-    private final ConcurrentMap<ThriftClientKey, ReferenceBean<?>> referenceConfigs = new ConcurrentHashMap<ThriftClientKey, ReferenceBean<?>>();
+    private final ConcurrentMap<ThriftClientKey, ReferenceBean<?>> referenceConfigs = new ConcurrentHashMap<>();
 
     TNiftyClientServicePool clientServicePool;
 
@@ -65,7 +65,8 @@ public class AnnotationBean implements DisposableBean, BeanPostProcessor, Applic
             }
             for (Method method : clazz.getDeclaredMethods()) {
                 String name = method.getName();
-                if (name.length() > 3 && name.startsWith("set")
+                if (name.length() > 3
+                        && name.startsWith("set")
                         && method.getParameterTypes().length == 1
                         && Modifier.isPublic(method.getModifiers())
                         && !Modifier.isStatic(method.getModifiers())) {
@@ -103,7 +104,7 @@ public class AnnotationBean implements DisposableBean, BeanPostProcessor, Applic
         }
     }
 
-    private Object refer(ThriftClient reference, Class<?> referenceClass) { //method.getParameterTypes()[0]
+    private Object refer(ThriftClient reference, Class<?> referenceClass) {     //method.getParameterTypes()[0]
         ThriftClientKey key = new ThriftClientKey(referenceClass, reference.application());
         ReferenceBean<?> referenceConfig = referenceConfigs.get(key);
         if (referenceConfig == null) {

@@ -14,6 +14,8 @@ thrift:
     receive-timeout: 2s
     read-timeout: 2s
     write-timeout: 2s
+    applications:
+      test: 127.0.0.1:8891
 
 
 environment: test

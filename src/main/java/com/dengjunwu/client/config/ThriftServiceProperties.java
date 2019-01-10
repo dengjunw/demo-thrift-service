@@ -15,8 +15,13 @@ public class ThriftServiceProperties {
 
     HashMap<String, String> applications;
     int poolMaxTotal = 512;
-    int poolMaxTotalPerKey = 8;
-    int poolMaxIdlePerKey = 6;
+//    int poolMaxTotalPerKey = 8;
+//    int poolMaxIdlePerKey = 6;
+
+    //for test
+    int poolMaxTotalPerKey = 2;
+    int poolMaxIdlePerKey = 2;
+
     int poolMinIdlePerKey = 2;
     long poolMaxWait = 1000;
     long timeBetweenEvictionRunsMillis = 10;

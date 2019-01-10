@@ -66,7 +66,15 @@ public class TNiftyClientServicePool {
                 ThriftClientManager clientManager = createClientManager().getThriftClientManager();
                 HostAndPort hostAndPort = HostAndPort.fromString(config.getApplicationAddress(applicationName));
                 NiftyClientConnector connector = new FramedClientConnector(hostAndPort);
-                ListenableFuture<NiftyClientChannel> connectFuture = clientManager.createChannel(connector, config.getConnectTimeout(), config.getReceiveTimeout(), config.getReadTimeout(), config.getWriteTimeout(), config.getMaxFrameSize(), config.getSocksProxy());
+                ListenableFuture<NiftyClientChannel> connectFuture = clientManager.createChannel(
+                        connector,
+                        config.getConnectTimeout(),
+                        config.getReceiveTimeout(),
+                        config.getReadTimeout(),
+                        config.getWriteTimeout(),
+                        config.getMaxFrameSize(),
+                        config.getSocksProxy()
+                );
                 ListenableFuture<NiftyClientChannel> clientFuture = Futures.transform(connectFuture, new Function<NiftyClientChannel, NiftyClientChannel>() {
                     @Nullable
                     public NiftyClientChannel apply(@NotNull NiftyClientChannel channel) {
